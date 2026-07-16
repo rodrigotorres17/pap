@@ -4,8 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Escola de Canelas — Início de Sessão</title>
-  <link rel="stylesheet" href="style.css">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     /* ======== BASE ======== */
     body {
       font-family: 'Poppins', Arial, sans-serif;
@@ -15,20 +18,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     header {
+      width: 100%;
+      max-width: 1340px;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       animation: fadeInDown 1s ease;
     }
 
-    #logo {
-      width: 130px;
-      height: auto;
-      margin-bottom: 0.8rem;
+    .school-photo {
+      display: block;
+      width: 100%;
+      height: clamp(180px, 32vw, 300px);
+      object-fit: cover;
+      margin-bottom: 0.4rem;
     }
 
     h1 {
@@ -40,6 +47,21 @@
     p {
       color: #555;
       margin: 0.3rem 0 0;
+    }
+
+    main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    .school-logo {
+      display: block;
+      width: min(410px, 100%);
+      height: auto;
+      margin-bottom: 0.4rem;
     }
 
     .photo {
@@ -57,8 +79,7 @@
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 6px 18px rgba(179, 0, 0, 0.25);
-      width: 90%;
-      max-width: 360px;
+      width: min(100%, 425px);
       text-align: left;
       animation: slideUp 1s ease;
       border-top: 5px solid #b30000;
@@ -135,6 +156,7 @@
       color: #777;
       font-size: 0.9rem;
       text-align: center;
+      padding: 0 1rem 1.5rem;
     }
 
     /* ======== ANIMAÇÕES ======== */
@@ -152,18 +174,25 @@
       from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.65rem; }
+      header { margin-bottom: 1rem; }
+      .login-box { padding: 1.5rem; }
+      footer { margin-top: 1.5rem; }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="imgs/biblioteca.jpg" alt="Logotipo da Escola de Canelas" width="100%">
+    <img class="school-photo" src="imgs/biblioteca.jpg" alt="Edifício da Escola de Canelas">
     <h1>Escola de Canelas</h1>
     <p>Bem-vindo ao portal do mapa interativo oficial da escola</p>
   </header>
 
   <main>
-    <img src="imgs/agrcanelas.png" alt="Logotipo da Escola de Canelas" style="margin-left: 18px;">
+    <img class="school-logo" src="imgs/agrcanelas.png" alt="Logotipo do Agrupamento de Escolas de Canelas">
 
     <div class="login-box">
       <h2>Iniciar Sessão</h2>
